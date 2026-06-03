@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48">
+  <!-- Fondo azul institucional con esquinas redondeadas -->
+  <rect width="48" height="48" rx="12" fill="#2563eb"/>
+
+  <!-- Escudo / forma académica -->
+  <path d="M24 8L40 16V26C40 35.4 32.8 43.2 24 45.6C15.2 43.2 8 35.4 8 26V16L24 8Z"
+        fill="white" fill-opacity="0.12"/>
+  <path d="M24 11L38 18.5V26C38 34.4 31.6 41.6 24 43.8C16.4 41.6 10 34.4 10 26V18.5L24 11Z"
+        stroke="white" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+
+  <!-- Cruz central (símbolo académico / salud institucional) -->
+  <rect x="21" y="18" width="6" height="14" rx="1.5" fill="white"/>
+  <rect x="17" y="22" width="14" height="6" rx="1.5" fill="white"/>
+</svg>
