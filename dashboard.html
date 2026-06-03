@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard — Sistema de Gestión Académica</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="page-dashboard">
+<div class="app-shell">
+
+<!-- ═══════════════════════════════════════════════════
+     SIDEBAR
+═══════════════════════════════════════════════════ -->
+<aside class="sidebar" id="sidebar">
+
+    <div class="sidebar-brand">
+        <div class="sidebar-logo">
+            <svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect width="48" height="48" rx="12" fill="#2563eb"/>
+                <path d="M24 13L36 19.8V26C36 32.38 30.6 38.42 24 40.2C17.4 38.42 12 32.38 12 26V19.8L24 13Z" stroke="white" stroke-width="1.5" fill="none"/>
+                <path d="M18 24H30M24 18V30" stroke="white" stroke-width="2.5" stroke-linecap="round"/>
+            </svg>
+        </div>
+        <div class="sidebar-brand-text">
+            <span class="sidebar-brand-name">Gestión Académica</span>
+            <span class="sidebar-brand-role">Plataforma Institucional</span>
+        </div>
+    </div>
+
+    <nav class="sidebar-nav" role="navigation" aria-label="Menú principal">
+        <p class="sidebar-nav-label">MÓDULOS</p>
+
+        <a href="#" id="menuEventos" class="nav-link nav-link--active" data-section="seccionEventos">
+            <span class="nav-link-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+            </span>
+            <span class="nav-link-text">Eventos Académicos</span>
+        </a>
+
+        <a href="#" id="menuInscripcion" class="nav-link" data-section="seccionInscripcion">
+            <span class="nav-link-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 2a1 1 0 000 2h2a1 1 0 100-2H9z"/><path fill-rule="evenodd" d="M4 5a2 2 0 012-2 3 3 0 003 3h2a3 3 0 003-3 2 2 0 012 2v11a2 2 0 01-2 2H6a2 2 0 01-2-2V5zm3 4a1 1 0 000 2h.01a1 1 0 100-2H7zm3 0a1 1 0 000 2h3a1 1 0 100-2h-3zm-3 4a1 1 0 100 2h.01a1 1 0 100-2H7zm3 0a1 1 0 100 2h3a1 1 0 100-2h-3z" clip-rule="evenodd"/></svg>
+            </span>
+            <span class="nav-link-text">Inscripción de Participantes</span>
+        </a>
+
+        <a href="#" id="menuReportes" class="nav-link" data-section="seccionReportes">
+            <span class="nav-link-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+            </span>
+            <span class="nav-link-text">Reportes</span>
+        </a>
+
+        <div class="sidebar-nav-divider"></div>
+
+        <a href="#" id="logout" class="nav-link nav-link--danger">
+            <span class="nav-link-icon">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 3a1 1 0 00-1 1v12a1 1 0 102 0V4a1 1 0 00-1-1zm10.293 9.293a1 1 0 001.414 1.414l3-3a1 1 0 000-1.414l-3-3a1 1 0 10-1.414 1.414L14.586 9H7a1 1 0 100 2h7.586l-1.293 1.293z" clip-rule="evenodd"/></svg>
+            </span>
+            <span class="nav-link-text">Cerrar Sesión</span>
+        </a>
+    </nav>
+
+    <div class="sidebar-footer">
+        <div class="sidebar-user">
+            <div class="sidebar-user-avatar">
+                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+            </div>
+            <div class="sidebar-user-info">
+                <p id="sidebarUserName" class="sidebar-user-name">Administrador</p>
+                <p class="sidebar-user-role">Administrador</p>
+            </div>
+        </div>
+        <p class="sidebar-author">Por: Yeison F. Martinez T.</p>
+    </div>
+
+</aside>
+<!-- /SIDEBAR -->
+
+<!-- ═══════════════════════════════════════════════════
+     ÁREA DE CONTENIDO
+═══════════════════════════════════════════════════ -->
+<div class="content-area">
+
+    <!-- TOPBAR -->
+    <header class="topbar">
+        <div class="topbar-left">
+            <!-- id=dashboard para assertElementPresent CP-001 -->
+            <!-- id=dashboardTitle para assertText CP-001 -->
+            <h1 id="dashboardTitle" class="topbar-title">Sistema de Gestión Académica</h1>
+            <nav id="dashboard" class="topbar-breadcrumb" aria-label="Ruta de navegación">
+                <span id="breadcrumbText">Inicio / Eventos Académicos</span>
+            </nav>
+        </div>
+        <div class="topbar-right">
+            <div class="topbar-user-chip">
+                <span class="topbar-user-icon">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/></svg>
+                </span>
+                <span id="topbarUserName">admin</span>
+            </div>
+        </div>
+    </header>
+    <!-- /TOPBAR -->
+
+    <main class="main-content" id="mainContent">
+
+        <!-- ═══════════════════════════════════════════
+             SECCIÓN 1: EVENTOS ACADÉMICOS
+        ═══════════════════════════════════════════ -->
+        <section id="seccionEventos" class="section section--active">
+
+            <div class="section-header">
+                <div class="section-header-text">
+                    <h2 class="section-title">Gestión de Eventos Académicos</h2>
+                    <p class="section-subtitle">Cree y administre los eventos académicos de la institución.</p>
+                </div>
+                <button type="button" id="btnNuevoEvento" class="btn btn-primary">
+                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M10 3a1 1 0 011 1v5h5a1 1 0 110 2h-5v5a1 1 0 11-2 0v-5H4a1 1 0 110-2h5V4a1 1 0 011-1z" clip-rule="evenodd"/></svg>
+                    Nuevo Evento
+                </button>
+            </div>
+
+            <!-- FORMULARIO CREAR EVENTO -->
+            <div id="formularioEvento" class="card card--form d-none">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--blue">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a1 1 0 00-1 1v1H4a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V6a2 2 0 00-2-2h-1V3a1 1 0 10-2 0v1H7V3a1 1 0 00-1-1zm0 5a1 1 0 000 2h8a1 1 0 100-2H6z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <h3 class="card-title">Crear Nuevo Evento Académico</h3>
+                </div>
+                <div class="card-body">
+                    <form id="formEvento" novalidate autocomplete="off">
+                        <div class="field-group">
+                            <label class="field-label" for="eventoNombre">Nombre del Evento <span class="req-mark">*</span></label>
+                            <input type="text" id="eventoNombre" class="field-input" placeholder="Ej: Seminario de Investigación 2025">
+                        </div>
+                        <div class="form-grid-2">
+                            <div class="field-group">
+                                <label class="field-label" for="eventoInicio">Fecha de Inicio <span class="req-mark">*</span></label>
+                                <input type="date" id="eventoInicio" class="field-input">
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="eventoFin">Fecha de Fin <span class="req-mark">*</span></label>
+                                <input type="date" id="eventoFin" class="field-input">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="eventoDescripcion">Descripción <span class="req-mark">*</span></label>
+                            <textarea id="eventoDescripcion" class="field-input field-textarea" rows="4" placeholder="Descripción detallada del evento académico"></textarea>
+                        </div>
+                        <div id="errorEvento" class="alert alert-error" role="alert" aria-live="polite"></div>
+                        <!-- id=eventoSuccess para assertText CP-004 -->
+                        <div id="mensajeEvento" class="alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="eventoSuccess" class="alert alert-success" role="status" aria-live="polite"></div>
+                        <div class="form-actions">
+                            <button type="button" id="btnCancelarEvento" class="btn btn-ghost">Cancelar</button>
+                            <button type="submit" id="btnGuardarEvento" class="btn btn-primary">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path d="M7.707 10.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V6h5a2 2 0 012 2v7a2 2 0 01-2 2H4a2 2 0 01-2-2V8a2 2 0 012-2h5v5.586l-1.293-1.293z"/></svg>
+                                Guardar Evento
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- LISTA DE EVENTOS -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--blue">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <h3 class="card-title">Eventos Registrados</h3>
+                    <span id="contadorEventos" class="chip chip--blue">0 eventos</span>
+                </div>
+                <div class="card-body">
+                    <div id="listaEventos">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/><path d="M8 14h.01M12 14h.01M16 14h.01M8 18h.01M12 18h.01"/></svg>
+                            </div>
+                            <p class="empty-state-title">No hay eventos registrados</p>
+                            <p class="empty-state-desc">Haga clic en "Nuevo Evento" para crear el primero.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             SECCIÓN 2: INSCRIPCIÓN DE PARTICIPANTES
+        ═══════════════════════════════════════════ -->
+        <section id="seccionInscripcion" class="section">
+
+            <div class="section-header">
+                <div class="section-header-text">
+                    <h2 class="section-title">Inscripción de Participantes</h2>
+                    <p class="section-subtitle">Registre participantes en los eventos académicos disponibles.</p>
+                </div>
+            </div>
+
+            <div class="card card--form">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--green">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M8 9a3 3 0 100-6 3 3 0 000 6zM8 11a6 6 0 016 6H2a6 6 0 016-6zM16 7a1 1 0 10-2 0v1h-1a1 1 0 100 2h1v1a1 1 0 102 0v-1h1a1 1 0 100-2h-1V7z"/></svg>
+                    </div>
+                    <h3 class="card-title">Inscribir Nuevo Participante</h3>
+                </div>
+                <div class="card-body">
+                    <form id="formInscripcion" novalidate autocomplete="off">
+                        <div class="field-group">
+                            <label class="field-label" for="selectEvento">Evento <span class="req-mark">*</span></label>
+                            <div class="field-select-wrap">
+                                <select id="selectEvento" class="field-input field-select">
+                                    <option value="">-- Seleccione un evento --</option>
+                                </select>
+                                <span class="field-select-arrow">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="form-grid-2">
+                            <div class="field-group">
+                                <label class="field-label" for="participanteNombre">Nombre Completo <span class="req-mark">*</span></label>
+                                <input type="text" id="participanteNombre" class="field-input" placeholder="Nombre completo del participante">
+                            </div>
+                            <div class="field-group">
+                                <label class="field-label" for="participanteId">N.º de Identificación <span class="req-mark">*</span></label>
+                                <input type="text" id="participanteId" class="field-input" placeholder="Número de documento">
+                            </div>
+                        </div>
+                        <div class="field-group">
+                            <label class="field-label" for="participanteEmail">Correo Electrónico <span class="req-mark">*</span></label>
+                            <input type="email" id="participanteEmail" class="field-input" placeholder="correo@ejemplo.com">
+                        </div>
+
+                        <div id="errorInscripcion" class="alert alert-error" role="alert" aria-live="polite"></div>
+                        <!-- id=inscripcionSuccess para assertText CP-005 -->
+                        <div id="mensajeInscripcion" class="alert alert-success" role="status" aria-live="polite"></div>
+                        <div id="inscripcionSuccess" class="alert alert-success" role="status" aria-live="polite"></div>
+
+                        <div class="form-actions">
+                            <button type="button" id="btnLimpiarInscripcion" class="btn btn-ghost">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M4 2a1 1 0 011 1v2.101a7.002 7.002 0 0111.601 2.566 1 1 0 11-1.885.666A5.002 5.002 0 005.999 7H9a1 1 0 010 2H4a1 1 0 01-1-1V3a1 1 0 011-1zm.008 9.057a1 1 0 011.276.61A5.002 5.002 0 0014.001 13H11a1 1 0 110-2h5a1 1 0 011 1v5a1 1 0 11-2 0v-2.101a7.002 7.002 0 01-11.601-2.566 1 1 0 01.61-1.276z" clip-rule="evenodd"/></svg>
+                                Limpiar
+                            </button>
+                            <button type="submit" id="btnInscribir" class="btn btn-primary">
+                                <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/></svg>
+                                Inscribir Participante
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <!-- LISTA DE PARTICIPANTES -->
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--green">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path d="M9 6a3 3 0 11-6 0 3 3 0 016 0zM17 6a3 3 0 11-6 0 3 3 0 016 0zM12.93 17c.046-.327.07-.66.07-1a6.97 6.97 0 00-1.5-4.33A5 5 0 0119 16v1h-6.07zM6 11a5 5 0 015 5v1H1v-1a5 5 0 015-5z"/></svg>
+                    </div>
+                    <h3 class="card-title">Participantes Inscritos</h3>
+                    <span id="contadorParticipantes" class="chip chip--green">0 participantes</span>
+                </div>
+                <div class="card-body">
+                    <div id="listaParticipantes">
+                        <div class="empty-state">
+                            <div class="empty-state-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                            </div>
+                            <p class="empty-state-title">No hay participantes inscritos</p>
+                            <p class="empty-state-desc">Complete el formulario para inscribir participantes.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- ═══════════════════════════════════════════
+             SECCIÓN 3: REPORTES
+        ═══════════════════════════════════════════ -->
+        <section id="seccionReportes" class="section">
+
+            <div class="section-header">
+                <div class="section-header-text">
+                    <h2 class="section-title">Reportes de Participantes</h2>
+                    <p class="section-subtitle">Genere y exporte reportes de participantes por evento académico.</p>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--purple">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h7a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h7a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <h3 class="card-title">Configurar Reporte</h3>
+                </div>
+                <div class="card-body">
+                    <div class="reporte-config-row">
+                        <div class="field-group field-group--grow">
+                            <label class="field-label" for="reporteEvento">Seleccionar Evento</label>
+                            <div class="field-select-wrap">
+                                <select id="reporteEvento" class="field-input field-select">
+                                    <option value="">-- Seleccione un evento --</option>
+                                </select>
+                                <span class="field-select-arrow">
+                                    <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                                </span>
+                            </div>
+                        </div>
+                        <button type="button" id="btnReporte" class="btn btn-primary btn-reporte">
+                            <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm0 4a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1z" clip-rule="evenodd"/></svg>
+                            Generar Reporte
+                        </button>
+                    </div>
+                    <div id="errorReporte" class="alert alert-error mt-sm" role="alert" aria-live="polite"></div>
+                    <!-- id=mensajeReporte y id=reporteMensaje para assertText CP-007 -->
+                    <div id="mensajeReporte" class="alert alert-success mt-sm" role="status" aria-live="polite"></div>
+                    <div id="reporteMensaje" class="alert alert-success mt-sm" role="status" aria-live="polite"></div>
+                </div>
+            </div>
+
+            <!-- TABLA DE REPORTE -->
+            <div id="contenedorReporte" class="card d-none">
+                <div class="card-header">
+                    <div class="card-header-icon card-header-icon--purple">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M6 2a2 2 0 00-2 2v12a2 2 0 002 2h8a2 2 0 002-2V7.414A2 2 0 0015.414 6L12 2.586A2 2 0 0010.586 2H6zm5 6a1 1 0 10-2 0v3.586l-1.293-1.293a1 1 0 10-1.414 1.414l3 3a1 1 0 001.414 0l3-3a1 1 0 00-1.414-1.414L11 11.586V8z" clip-rule="evenodd"/></svg>
+                    </div>
+                    <h3 class="card-title" id="tituloReporte">Reporte de Participantes</h3>
+                    <button type="button" id="btnExportar" class="btn btn-success">
+                        <svg viewBox="0 0 20 20" fill="currentColor"><path fill-rule="evenodd" d="M3 17a1 1 0 011-1h12a1 1 0 110 2H4a1 1 0 01-1-1zm3.293-7.707a1 1 0 011.414 0L9 10.586V3a1 1 0 112 0v7.586l1.293-1.293a1 1 0 111.414 1.414l-3 3a1 1 0 01-1.414 0l-3-3a1 1 0 010-1.414z" clip-rule="evenodd"/></svg>
+                        Exportar CSV
+                    </button>
+                </div>
+                <div class="card-body p-0">
+                    <div id="tablaReporte" class="table-responsive"></div>
+                </div>
+                <div id="mensajeExportar" class="alert alert-success alert-card-footer" role="status" aria-live="polite"></div>
+            </div>
+
+        </section>
+        <!-- /SECCIÓN REPORTES -->
+
+    </main>
+
+    <!-- FOOTER DEL DASHBOARD -->
+    <footer class="dashboard-footer">
+        <span>Sistema de Gestión Académica &copy; 2025</span>
+        <span class="footer-separator">|</span>
+        <span>Elaborado por: <strong>Yeison Fabian Martinez Teatino</strong></span>
+    </footer>
+
+</div><!-- /content-area -->
+</div><!-- /app-shell -->
+
+<script src="app.js"></script>
+</body>
+</html>
